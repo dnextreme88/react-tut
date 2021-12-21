@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Video tutorial: [React Crash Course for Beginners 2021 - Learn ReactJS from Scratch in this 100% Free Tutorial!](https://www.youtube.com/watch?v=Dorf8i6lCuk)
+
 This project was bootstrapped with [npx create-react-app@latest](https://github.com/facebook/create-react-app) command.
 
 ## Available Scripts
