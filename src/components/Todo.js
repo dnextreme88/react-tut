@@ -1,16 +1,25 @@
+import { useState } from 'react';
+import Backdrop from './Backdrop';
+import Modal from './Modal';
+
 function Todo(props) {
+    // always returns an array with 2 elements
+    // params: [current state snapshot, function that allows you to change the snapshot]
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
     function deleteHandler() {
-        console.log('Clicked!');
-        console.log(props.text);
+        setModalIsOpen(true);
     }
 
     return (
-    <div className='card'>
-      <h2>{props.text}</h2>
-      <div className='actions'>
-        <button className='btn'onClick={deleteHandler}>Delete</button>
-      </div>
-    </div>
+        <div className='card'>
+            <h2>{props.text}</h2>
+            <div className='actions'>
+                <button className='btn'onClick={deleteHandler}>Delete</button>
+            </div>
+            { modalIsOpen && <Modal /> }
+            { modalIsOpen && <Backdrop /> }
+        </div>
     );
 }
 
