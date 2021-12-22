@@ -8,6 +8,23 @@ const FavoritesContext = createContext({
 // Its job is to provide this context to all the components that are interested in listening to the values so all the components that need values from the context and this function will also be responsible for updating the context values
 function FavoritesContextProvider(props) {
     const [userFavorites, setUserFavorites] = useState([]);
+
+    function addFavoriteHandler(favoriteMeetup) {
+        setUserFavorites((prevUserFavorites) => {
+            return prevUserFavorites.concat(favoriteMeetup);
+        });
+    }
+
+    function removeFavoriteHandler(meetupId) {
+        setUserFavorites((prevUserFavorites) => {
+            return prevUserFavorites.filter(meetup => meetup.id !== meetupId);
+        });
+    }
+
+    function itemIsFavoriteHandler(meetupId) {
+        return userFavorites.some(meetup => meetup.id === meetupId);
+    }
+
     const context = {
         favorites: userFavorites,
         totalFavorites: userFavorites.length,
